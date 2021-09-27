@@ -1,1 +1,1 @@
-# node-express-mongo-api-auth
+# node-express-mongo-api-cinema
