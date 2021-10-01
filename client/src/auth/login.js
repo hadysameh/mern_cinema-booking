@@ -1,6 +1,7 @@
 import React ,{ useEffect,useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {login} from './../store/slices/user'
+import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
@@ -26,7 +27,17 @@ const Login = (props) => {
     }
     return (
         <div themebg-pattern="theme1">
-            
+            <link rel="stylesheet" href="../files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/widget.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/style.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/pages.css" type="text/css" media="all"/> 
             <div className="theme-loader">
                 <div className="loader-track">
                     <div className="preloader-wrapper">
@@ -138,8 +149,9 @@ const Login = (props) => {
                                                     
                                                 </div>
                                             </div>
-                                            <p className="text-inverse text-left">Don't have an account?<a href="auth-sign-up-social.html"> <b>Register here </b></a>for free!</p>
+                                            <p className="text-inverse text-left">Don't have an account?<Link to='/register'><b>Register here </b></Link>for free!</p>
                                         </div>
+                                        
                                     </div>
                                 </form>
                                     {/* <!-- end of form --> */}
@@ -151,7 +163,7 @@ const Login = (props) => {
                     </div>
                     {/* <!-- end of container-fluid --> */}
                 </section>
-                <script type="text/javascript" src="../files/bower_components/jquery/js/jquery.min.js"></script>
+                {/* <script type="text/javascript" src="../files/bower_components/jquery/js/jquery.min.js"></script> */}
   
         </div>
     );

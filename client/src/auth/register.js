@@ -29,6 +29,17 @@ const Register = () => {
     }
     return (
         <div themebg-pattern="theme1">
+            <link rel="stylesheet" href="../files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/widget.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/style.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="../files/assets/css/pages.css" type="text/css" media="all"/> 
         <div className="theme-loader">
             <div className="loader-track">
                 <div className="preloader-wrapper">

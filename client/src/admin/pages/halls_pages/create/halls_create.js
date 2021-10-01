@@ -2,7 +2,7 @@ import React,{useEffect,useState}from 'react';
 import { useHistory } from "react-router-dom";
 
 import axios from 'axios'
-const Durations_create = () => {
+const Halls_create = () => {
     const history = useHistory()
 
     const [hall_name, sethall_name] = useState('')
@@ -42,4 +42,4 @@ const Durations_create = () => {
     );
 };
 
-export default Durations_create;
+export default Halls_create;

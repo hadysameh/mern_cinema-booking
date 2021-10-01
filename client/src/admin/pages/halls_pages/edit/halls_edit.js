@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router';
 import { useHistory } from "react-router-dom";
 
-const Durations_edit = () => {
+const Halls_edit = () => {
     const history = useHistory()
     
     let { id } = useParams();
@@ -53,4 +53,4 @@ const Durations_edit = () => {
         </div> );
 };
 
-export default Durations_edit;
+export default Halls_edit;

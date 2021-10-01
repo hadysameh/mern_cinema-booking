@@ -149,13 +149,13 @@ const Navigation_side_bar = () => {
                                             <ul className="pcoded-submenu">
                                                 <li className="">
                                                     
-                                                    <Link to='/admin/durations/'>
+                                                    <Link to='/admin/movies/'>
                                                         <span className="pcoded-mtext">main</span>
                                                     </Link>
                                                 </li>
                                                 <li className="pcoded-hasmenu">
                                                     
-                                                    <Link to='/admin/durations/creat'>
+                                                    <Link to='/admin/movies/creat'>
                                                         <span className="pcoded-mtext">create</span>
                                                     </Link>
                                                 </li>
@@ -175,13 +175,13 @@ const Navigation_side_bar = () => {
                                             <ul className="pcoded-submenu">
                                                 <li className="pcoded-hasmenu">
                                                     
-                                                    <Link to='/admin/durations/'>
+                                                    <Link to='/admin/schedules/'>
                                                         <span className="pcoded-mtext">main</span>
                                                     </Link>
                                                 </li>
                                                 <li className="pcoded-hasmenu">
                                                     
-                                                    <Link to='/admin/durations/creat'>
+                                                    <Link to='/admin/schedules/creat'>
                                                         <span className="pcoded-mtext">create</span>
                                                     </Link>
                                                 </li>
@@ -257,12 +257,7 @@ const Navigation_side_bar = () => {
                                                         <span className="pcoded-mtext">main</span>
                                                     </Link>
                                                 </li>
-                                                <li className="pcoded-hasmenu">
-                                                    
-                                                    <Link to='/admin/durations/creat'>
-                                                        <span className="pcoded-mtext">create</span>
-                                                    </Link>
-                                                </li>
+                                                
                                                 {/* <li className="">
                                                     <a href="dashboard-analytics.html" className="waves-effect waves-dark">
                                                         <span className="pcoded-mtext">Analytics</span>

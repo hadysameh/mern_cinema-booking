@@ -7,7 +7,20 @@ class MoviesController{
         let page_number= req.query.page_nummber
         let page_limit=20
         let skipping_number=(page_number-1)*20
-        let movies = Movie.find({}).skip(skipping_number).limit(page_limit).exec()
+        let movies = await Movie.find({}).skip(skipping_number).limit(page_limit).exec()
+        // console.log(movies)
+        res.json(movies)
+    }
+    static async show(req,res){
+        // console.log({_id:req.query.id})
+        let movie = await Movie.find({_id:req.query.id}).exec()
+        // console.log({_id:req.query.id,durations})
+
+        res.json(movie)
+    }
+
+    static async search(req,res){
+        let movies =await Movie.find({movie_name:req.query.movie_name}).exec()
         res.json(movies)
     }
 
@@ -16,7 +29,7 @@ class MoviesController{
             movie_name:req.body.movie_name,
             rating:req.body.rating,
             image:req.file.path,
-            trailer_link:req.body.rating,
+            trailer_link:req.body.trailer_link,
         })
         let saved_Movie=await movie.save()
         res.json(saved_Movie)
@@ -42,6 +55,7 @@ class MoviesController{
             }
         }
         let movie = await Movie.updateOne({_id:req.body.id},edited_movie)
+        console.log(req.body )
         res.json(movie)
     }
     

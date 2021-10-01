@@ -21,7 +21,7 @@ let schedule_schema = new schema({
         required:true
     },
     date:{ 
-        type : Date,
+        type : String,
         default: new Date().toISOString().replace(/T.*/, '')
     },
 
@@ -30,7 +30,18 @@ let schedule_schema = new schema({
     timestamps:true
 })
 
-schedule_schema.index({ movie_name: 1 }); 
+// schedule_schema.index({ movie_name: 1 }); 
+// schedule_schema.index({ 'movie.movie_name': -1 }); 
+// schedule_schema.index({ 'hall_name': -1 }); 
+// schedule_schema.index({ 'duration': -1 }); 
+// schedule_schema.index({ 'date': -1 }); 
+//======================================================
+schedule_schema.index({ 'movie.movie_name': -1,hall_name: -1,duration: -1  ,date: -1 }); 
+schedule_schema.index({ hall_name: -1,duration: -1  ,date: -1,'movie.movie_name': -1 }); 
+schedule_schema.index({ duration: -1  ,date: -1,'movie.movie_name': -1,hall_name: -1 }); 
+schedule_schema.index({ date: -1,'movie.movie_name': -1,hall_name: -1 ,duration: -1}); 
+
+
 
 module.exports = Schedule = mongoose.model('Schedule',schedule_schema)
 

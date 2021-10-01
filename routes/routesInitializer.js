@@ -4,10 +4,12 @@ const hall_Router = require('./hall')
 const purchase_Router = require('./purchase')
 const schedule_Router = require('./schedule')
 const movie_Router = require('./movie')
+const schedulesCreate_Router = require('./schedulesCreate')
 
 
 function initializeRoutes(app){
     app.use("/api", user_Router);
+    app.use("/api", schedulesCreate_Router);
     app.use("/api", duration_Router);
     app.use("/api", hall_Router);
     app.use("/api", purchase_Router);
