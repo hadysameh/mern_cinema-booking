@@ -28,20 +28,21 @@ const Admin_page_layout = (props) => {
     const history = useHistory()
     useEffect(() => {
       
-      require( '../../files/bower_components/bootstrap/css/bootstrap.min.css')
-      require( '../../files/assets/pages/waves/css/waves.min.css')
-      require( '../../files/assets/icon/feather/css/feather.css')
-      require( '../../files/assets/icon/themify-icons/themify-icons.css')
-      require( '../../files/assets/icon/icofont/css/icofont.css')
-      require( '../../files/bower_components/chartist/css/chartist.css')
-      require( '../../files/assets/icon/font-awesome/css/font-awesome.min.css')
-      require( '../../files/assets/css/widget.css')
-      require( '../../files/assets/css/style.css')
-      require( '../../files/assets/css/pages.css')
+      // require( '../../files/bower_components/bootstrap/css/bootstrap.min.css')
+      // require( '../../files/assets/pages/waves/css/waves.min.css')
+      // require( '../../files/assets/icon/feather/css/feather.css')
+      // require( '../../files/assets/icon/themify-icons/themify-icons.css')
+      // require( '../../files/assets/icon/icofont/css/icofont.css')
+      // require( '../../files/bower_components/chartist/css/chartist.css')
+      // require( '../../files/assets/icon/font-awesome/css/font-awesome.min.css')
+      // require( '../../files/assets/css/widget.css')
+      // require( '../../files/assets/css/style.css')
+      // require( '../../files/assets/css/pages.css')
 
     },)
     
     useEffect(() => {
+      console.log('component loaded once')
         setTimeout(()=>{
             window.dispatchEvent(new Event('load'));
           },750)
@@ -62,7 +63,7 @@ const Admin_page_layout = (props) => {
     }
     useEffect(() => {
       let script_pats=[
-        '/admin_files/bower_components/jquery/js/jquery.min.js',
+        // '/admin_files/bower_components/jquery/js/jquery.min.js',
         '/admin_files/bower_components/jquery-ui/js/jquery-ui.min.js',
         '/admin_files/bower_components/popper.js/js/popper.min.js',
         '/admin_files/bower_components/bootstrap/js/bootstrap.min.js',
@@ -109,6 +110,19 @@ const Admin_page_layout = (props) => {
     
     return (
         <div>
+          <Helmet>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/bower_components/bootstrap/css/bootstrap.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/pages/waves/css/waves.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/feather/css/feather.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/themify-icons/themify-icons.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/icofont/css/icofont.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/bower_components/chartist/css/chartist.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/font-awesome/css/font-awesome.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/widget.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/style.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/pages.css'/>
+
+          </Helmet>
           
             {/* [ Pre-loader ] start   */}
             <div className="loader-bg">
@@ -154,10 +168,10 @@ const Admin_page_layout = (props) => {
                 </div>
             </div>
            
-            {/* <Helmet>
+            <Helmet>
              
                 <script type="text/javascript" src="/admin_files/bower_components/jquery/js/jquery.min.js"></script>
-                <script type="text/javascript" src="/admin_files/bower_components/jquery-ui/js/jquery-ui.min.js" ></script>
+                {/* <script type="text/javascript" src="/admin_files/bower_components/jquery-ui/js/jquery-ui.min.js" ></script>
                 <script type="text/javascript" src="/admin_files/bower_components/popper.js/js/popper.min.js" ></script>
                 <script type="text/javascript" src="/admin_files/bower_components/bootstrap/js/bootstrap.min.js" ></script>
 
@@ -183,8 +197,8 @@ const Admin_page_layout = (props) => {
                 <script src="./admin_files/bower_components/chartist/js/chartist.js" ></script>
                 <script src="./admin_files/assets/pages/widget/amchart/amcharts.js" ></script>
                 <script src="./admin_files/assets/pages/widget/amchart/serial.js" ></script>
-                <script src="./admin_files/assets/pages/widget/amchart/light.js" ></script>
-            </Helmet> */}
+                <script src="./admin_files/assets/pages/widget/amchart/light.js" ></script> */}
+            </Helmet>
 
 
         </div>

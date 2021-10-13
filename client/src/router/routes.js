@@ -30,6 +30,7 @@ import Customer_pages_layout from '../customer/pages/customer_pages_layout'
 // ======================================================================================================
 import Home from '../customer/pages/home/home'
 import Movie from '../customer/pages/movie/movie'
+import Hall_reservations from '../customer/pages/hall_reservations/hall_reservations'
 
 
 
@@ -38,20 +39,30 @@ import Movie from '../customer/pages/movie/movie'
 let routes = (
     
         <Router >
-            <ScrollToTtheTop/>
+            
                 <Switch>
 
                     
                     <Route exact path='/'>
+                        <ScrollToTtheTop/>
                         <Customer_pages_layout content={<Home/>}/>
                     </Route>  
-                    <Route exact path='/movie'>
+                    <Route exact path='/movie/:id?'>
+                        <ScrollToTtheTop/>
                         <Customer_pages_layout content={<Movie/>}/>
                     </Route>  
-                   
+                    <Route exact path='/movie/hall_reservation/:id?'>
+                        <ScrollToTtheTop/>
+                        <Customer_pages_layout content={<Hall_reservations/>}/>
+                    </Route>
+                    <Route exact path='/movie/:movie_id?/duration/:duration?/date/:date?/hall_reservations'>
+                        <ScrollToTtheTop/>
+                        <Customer_pages_layout content={<Hall_reservations/>}/>
+                    </Route>
+                    {/* ==================================================================================================================================================================================== */}
 
                     
-                    {/* <AdminProtectedeRoute exact path={'/admin'} component={Admin_page_layout}  ScrollToTtheTop={<ScrollToTtheTop/>}/>    */}
+                    <AdminProtectedeRoute exact path={'/admin'} component={Admin_page_layout}  ScrollToTtheTop={<ScrollToTtheTop/>}/>   
                     <AdminProtectedeRoute exact path={'/admin/durations/creat'} component={Admin_page_layout} Content={<Durations_create/>} ScrollToTtheTop={<ScrollToTtheTop/>}/>   
                     <AdminProtectedeRoute exact path={'/admin/durations/edit/:id?'} component={Admin_page_layout} Content={<Durations_edit/>} ScrollToTtheTop={<ScrollToTtheTop/>}/>   
                     <AdminProtectedeRoute exact path={'/admin/durations/'} component={Admin_page_layout} Content={<Durations_main/>} ScrollToTtheTop={<ScrollToTtheTop/>}/>   

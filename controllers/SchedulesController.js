@@ -6,7 +6,7 @@ class SchedulesController{
         let page_number= req.query.page_nummber
         let page_limit=20
         let skipping_number=(page_number-1)*20
-        let schedules = await Schedule.find({}).skip(skipping_number).limit(page_limit).exec()
+        let schedules = await Schedule.find({}).skip(skipping_number).sort({'_id':-1}).limit(page_limit).exec()
         // console.log(schedules)
         res.json(schedules)
     }
@@ -20,12 +20,12 @@ class SchedulesController{
             date:req.query.date,
             duration:req.query.duration_name
         }).skip(skipping_number).limit(page_limit).exec()
-        console.log({
-            'movie.movie_name':req.query.movie_name,
-            hall_name:req.query.hall_name,
-            date:req.query.date,
-            duration:req.query.duration_name
-        })
+        // console.log({
+        //     'movie.movie_name':req.query.movie_name,
+        //     hall_name:req.query.hall_name,
+        //     date:req.query.date,
+        //     duration:req.query.duration_name
+        // })
         res.json(schedules)
     }
 
@@ -36,6 +36,21 @@ class SchedulesController{
 
         res.json(schedule)
     }
+
+    static async get_halls(req,res){
+        // console.log({_id:req.query.id})
+        let search_params={
+            'movie._id':req.query.movie_id,
+            duration:req.query.duration,
+            date:req.query.date,
+        }
+        // console.log(search_params)
+        let schedule = await Schedule.find(search_params).select(['hall_name']).exec()
+        // console.log({_id:req.query.id,durations})
+
+        res.json(schedule)
+    }
+
     static async store(req,res){
         let schedule = new Schedule({
             movie:req.body.movie,

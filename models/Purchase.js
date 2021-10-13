@@ -12,8 +12,8 @@ let schedule_schema = new schema({
     },
     /*
     {
-        movie:{
-        type:schema.Types.Mixed,
+        movie_id:{
+        type:schema.Types.ObjectId,
         required:true
         },
         hall_name:{

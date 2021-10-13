@@ -1,5 +1,6 @@
 
 const Movie = require('../models/Movie')
+const Schedule = require('../models/Schedule')
 
 class MoviesController{
 
@@ -12,9 +13,7 @@ class MoviesController{
         res.json(movies)
     }
     static async show(req,res){
-        // console.log({_id:req.query.id})
         let movie = await Movie.find({_id:req.query.id}).exec()
-        // console.log({_id:req.query.id,durations})
 
         res.json(movie)
     }
@@ -22,6 +21,19 @@ class MoviesController{
     static async search(req,res){
         let movies =await Movie.find({movie_name:req.query.movie_name}).exec()
         res.json(movies)
+    }
+
+    static async dates_for_schedule(req,res){
+        //when using distinct the id field is not fetched
+        let dates_and_durations =await Schedule.find({'movie._id':req.query.movie_id,'date': { $gte: new Date().toISOString().replace(/T.*/, '')}}).select(['date']).distinct('date').exec()
+        // console.log(dates_and_durations)
+        res.json(dates_and_durations)
+    }
+
+    static async durations_for_schedule(req,res){
+        let dates_and_durations =await Schedule.find({'movie._id':req.query.movie_id,'date': req.query.date}).select(['duration','_id']).distinct('duration').exec()
+        // console.log(dates_and_durations)
+        res.json(dates_and_durations)
     }
 
     static async store(req,res){

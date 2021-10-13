@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // import './../../template_files/css/style.css'
-import { Link } from 'react-router-dom';
 
 import site_logo from "./../../template_files/images/logo1.png"
 // let site_logo = require("./../../template_files/images/logo1.png")
@@ -24,12 +24,13 @@ const Navbar = () => {
                                             <span></span>
                                         </div>
                                     </div>
-                                    <a href="index-2.html"><img className="logo" src={site_logo} alt="" width="119" height="58"/></a>
+                                    {/* <a href="index-2.html"><img className="logo" src={site_logo} alt="" width="119" height="58"/></a> */}
+                                    <Link to='/'><img className="logo" src={site_logo} alt="" width="119" height="58"/></Link>
                                 </div>
                                 {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
                                 <div className="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
                                     <ul className="nav navbar-nav flex-child-menu menu-left">
-                                        <li className="hidden">
+                                        {/* <li className="hidden">
                                             <a href="#page-top"></a>
                                         </li>
                                         <li className="dropdown first">
@@ -90,7 +91,7 @@ const Navbar = () => {
                                                 <li><a href="userprofile.html">user profile</a></li>
                                                 <li className="it-last"><a href="userrate.html">user rate</a></li>
                                             </ul>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                     <ul className="nav navbar-nav flex-child-menu menu-right">
                                         <li className="dropdown first">
@@ -108,6 +109,8 @@ const Navbar = () => {
                                         <li className="btn signupLink"><a href="#">sign up</a></li>
                                     </ul>
                                 </div>
+                       
+                       
                             {/* <!-- /.navbar-collapse --> */}
                         </nav>
                         
@@ -127,11 +130,11 @@ const Navbar = () => {
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="hero-ct">
-                                    <h1>Movie Listing - Grid Fullwidth</h1>
-                                    <ul className="breadcumb">
+                                    <h1>WELCOME TO BLOCK BUSTER</h1>
+                                    {/* <ul className="breadcumb">
                                         <li className="active"><a href="#">Home</a></li>
                                         <li> <span className="ion-ios-arrow-right"></span> movie listing</li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>

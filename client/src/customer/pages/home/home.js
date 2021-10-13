@@ -1,10 +1,25 @@
-import React from 'react';
-
+import React, { useEffect,useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios'
 const Home = () => {
+    const [page_number, setpage_number] = useState(1)
+    // const [pages_count, setpages_count] = useState(1)
+
+    const [movies, setmovies] = useState([])
+    useEffect(() => {
+        axios.get('/api/home',
+        {
+            params: {
+                page_number: page_number
+              }
+        }).then(res=>{
+            console.log(res.data)
+            setmovies(res.data)
+        })
+        
+    }, [page_number])
     return (
-        // <div>
-        //     test
-        // </div>
+       
             <div className="page-single">
                 <div className="container">
                     <div className="row">
@@ -24,227 +39,19 @@ const Home = () => {
                                 <a  href="moviegridfw.html" className="grid"><i className="ion-grid active"></i></a>
                             </div>
                             <div className="flex-wrap-movielist mv-grid-fw">
+                                    
+                                    {movies.map(movie=>(
                                     <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv1.jpg" alt=""/>
+                                        <img src={'http://localhost:5000/'+movie.image} alt=""/>
                                         <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
+                                            {/* <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a> */}
+                                            <Link  to={'/movie/'+movie._id}> Read more <i className="ion-android-arrow-dropright"></i> </Link>
                                         </div>
                                         <div className="mv-item-infor">
-                                            <h6><a href="#">oblivion</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>8.1</span> /10</p>
+                                            <h6><a href="#">{movie.movie_name}</a></h6>
+                                            <p className="rate"><i className="ion-android-star"></i><span>{movie.rating}</span> /10</p>
                                         </div>
-                                    </div>					
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv2.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">into the wild</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.8</span> /10</p>
-                                        </div>
-                                    </div>					
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item3.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">Die hard</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>					
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item4.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">The walk</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv3.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">blade runner  </a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.3</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv4.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">Mulholland pride</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.2</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv5.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">skyfall: evil of boss</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.0</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item1.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">Interstellar</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-
-                                        <img src="./.././../template_files/images/uploads/mv-item2.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">The revenant</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-it10.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">harry potter</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-it11.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">guardians galaxy</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-it12.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">the godfather</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item6.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">blue velvet</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item7.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">gravity</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item8.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">southpaw</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-it9.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">jurassic park</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item9.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">the forest</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item10.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">spectre</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item11.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">strager things</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv-item12.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">la la land</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.4</span> /10</p>
-                                        </div>
-                                    </div>
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv1.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">oblivion</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>8.1</span> /10</p>
-                                        </div>
-                                    </div>					
-                                    <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src="./.././../template_files/images/uploads/mv2.jpg" alt=""/>
-                                        <div className="hvr-inner">
-                                            <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a>
-                                        </div>
-                                        <div className="mv-item-infor">
-                                            <h6><a href="#">into the wild</a></h6>
-                                            <p className="rate"><i className="ion-android-star"></i><span>7.8</span> /10</p>
-                                        </div>
-                                    </div>
+                                    </div>))}
                                     
                             </div>		
                             <div className="topbar-filter">

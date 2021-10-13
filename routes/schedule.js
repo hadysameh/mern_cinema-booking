@@ -8,6 +8,7 @@ router.get('/schedule/',[isAuth],SchedulesController.index)
 
 router.get('/schedule/show',[isAuth,isAdmin],SchedulesController.show)
 
+router.get('/schedule/get_halls',[isAuth,],SchedulesController.get_halls)
 
 router.post('/schedule/store/',[isAuth],SchedulesController.store)
 

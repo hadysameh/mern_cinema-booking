@@ -4,33 +4,24 @@ import Footer from './components/footer';
 import {Helmet} from "react-helmet";
 import loading_img from "./../template_files/images/logo1.png"
 
-// import '../template_files/css/style.css'
-// import '../template_files/css/plugins.css'
 const Customer_pages_layout = (props) => {
   
   
   useEffect(() => {
-     
+    //  console.log('customer layout')
       setTimeout(()=>{
         window.dispatchEvent(new Event('load'));
-      },750)
+        // console.log('load event was dispatched ')
+
+      },2500)
       return () => {
         
       }
   }, [])
 
   useEffect(() => {
-    require( '../template_files/css/style.css')
-    // require( '../template_files/css/plugins.css')
-    
-    return () => {
-      
-    }
-  }, [])
-
-  useEffect(() => {
     let script_pats=[
-      '/customer_files/js/jquery.js',
+      // '/customer_files/js/jquery.js',
       '/customer_files/js/plugins.js',
       '/customer_files/js/plugins2.js',
       '/customer_files/js/custom.js'
@@ -40,16 +31,18 @@ const Customer_pages_layout = (props) => {
       script_pats.forEach(script_path=>{
         let script= document.createElement('script');
         script.src = script_path;
+        script.type="text/javascript"
+        // script.async = true;
+        // script.defer  = true;
 
-        script.async = true;
 
         setTimeout(()=>{
           document.body.appendChild(script);
           scripts.push(script)
-        },100)
+        },250)
         
       })
-    },750)
+    },50)
     
 
     return () => {
@@ -69,6 +62,9 @@ const Customer_pages_layout = (props) => {
             <link rel="stylesheet" href="./customer_files/css/style.css" type="text/css" media="all"/>
             <link rel="stylesheet" href="./customer_files/css/plugins.css" type="text/css" media="all"/>
           </Helmet>
+          {/* <Helmet>
+              <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>              
+            </Helmet> */}
           
             {/* <!--preloading--> */}
            
@@ -85,17 +81,15 @@ const Customer_pages_layout = (props) => {
             <Navbar/>
             {props.content}
             <Footer/>
-{/*             
+            
             <Helmet>
-              <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>
-              <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
-              <script type="text/javascript"  src='./customer_files/js/plugins2.js'></script>
-              <script type="text/javascript"  src='./customer_files/js/custom.js'></script>
-            </Helmet> */}
-            {/* <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>
-            <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
+ 
+            <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>
+            {/* <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
             <script type="text/javascript"  src='./customer_files/js/plugins2.js'></script>
             <script type="text/javascript"  src='./customer_files/js/custom.js'></script> */}
+            </Helmet>
+           
 
         </div>
     );
