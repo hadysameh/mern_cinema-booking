@@ -27,13 +27,28 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.get('/',(req,res)=>{
-    res.send('hi you')
-})
+
+    
+
 
 app.use('/uploads',express.static('./uploads'));
 
 initializeRoutes(app)
+
+if(process.env.NOD_ENV=='PRODUCTION'){
+
+  app.use(express.static(__dirname+'/build/'))
+  app.get('*',(req,res)=>{
+    res.sendFile(__dirname+'/build/index.html')
+
+  })
+}else{
+  app.get('/*',(req,res)=>{
+    res.send('hi you')
+  })
+  
+
+}
 mongoose.set('useCreateIndex', true);
 
 mongoose.connect(process.env.mongodbConnectionStr,
