@@ -22,7 +22,8 @@ class UserController{
                     }
                 })
             }
-            else{
+            else
+            {
                 res.status(400).json({status:'email was not found please regiser first'});
             }
         })

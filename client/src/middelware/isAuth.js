@@ -33,11 +33,11 @@ const AuthProtectedeRoute =({component:Component,...rest})=>{
             render ={(props)=>{
                 if(!isLoading){
                     if(isAuth){
-                        console.log(isAuth)            
+                        // console.log(isAuth)            
                         return (
                         <div>
                             {rest.ScrollToTtheTop}
-                            <Component {...props} {...rest}/>
+                            <Component {...props} {...rest} Content={rest.Content}/>
                         </div>
                  
                 )
@@ -45,6 +45,13 @@ const AuthProtectedeRoute =({component:Component,...rest})=>{
                     else {
                         // console.log(isAuth)            
                         return <Redirect to="/login"/>;
+                        // return <Redirect
+                        //     to={{
+                        //     pathname: "/login",
+                        //     state: { path: rest.path }
+                        // }}
+                        ///>
+
                     }
                 }
                 else{

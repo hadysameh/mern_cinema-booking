@@ -3,7 +3,6 @@ import {useEffect,useState} from 'react'
 import axios from "axios";
 
 
-
 const AdminProtectedeRoute =({component:Component,...rest})=>{
    const [isLoading, setisLoading] = useState(true)
    const [isAuth, setisAuth] = useState(false)

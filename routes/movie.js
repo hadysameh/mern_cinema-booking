@@ -12,7 +12,7 @@ router.get('/movie/dates_for_schedule',MoviesController.dates_for_schedule)
 
 router.get('/movie/durations_for_schedule',MoviesController.durations_for_schedule)
 
-router.get('/movie/show',[isAuth,isAdmin],MoviesController.show)
+router.get('/movie/show',[],MoviesController.show)
 
 router.get('/movie/search',MoviesController.search)
 

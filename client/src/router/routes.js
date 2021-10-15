@@ -45,20 +45,25 @@ let routes = (
                     
                     <Route exact path='/'>
                         <ScrollToTtheTop/>
-                        <Customer_pages_layout content={<Home/>}/>
+                        <Customer_pages_layout Content={<Home/>}/>
                     </Route>  
                     <Route exact path='/movie/:id?'>
                         <ScrollToTtheTop/>
-                        <Customer_pages_layout content={<Movie/>}/>
+                        <Customer_pages_layout Content={<Movie/>}/>
                     </Route>  
                     <Route exact path='/movie/hall_reservation/:id?'>
                         <ScrollToTtheTop/>
-                        <Customer_pages_layout content={<Hall_reservations/>}/>
+                        <Customer_pages_layout Content={<Hall_reservations/>}/>
                     </Route>
-                    <Route exact path='/movie/:movie_id?/duration/:duration?/date/:date?/hall_reservations'>
+                    {/* <Route exact path='/movie/:movie_id?/duration/:duration?/date/:date?/hall_reservations'>
                         <ScrollToTtheTop/>
                         <Customer_pages_layout content={<Hall_reservations/>}/>
-                    </Route>
+                    </Route> */}
+                    {/* <AuthProtectedeRoute exact path='/cart' component={Cart} ScrollToTtheTop={<ScrollToTtheTop/>}>                    
+                        
+                    </AuthProtectedeRoute>  */}
+                    <AuthProtectedeRoute exact path='/movie/:movie_id?/duration/:duration?/date/:date?/hall_reservations' component={Customer_pages_layout} Content={<Hall_reservations/>} ScrollToTtheTop={<ScrollToTtheTop/>}>                    
+                    </AuthProtectedeRoute> 
                     {/* ==================================================================================================================================================================================== */}
 
                     

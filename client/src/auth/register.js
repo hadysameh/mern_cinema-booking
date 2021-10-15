@@ -9,21 +9,20 @@ const Register = () => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [repassword, setrepassword] = useState('')
+    const [error, seterror] = useState(null)
 
     useEffect(()=>{
         // console.log(useSelector((state) => state.token))
     })
     const dispatch_register=()=>{
-        console.log({email,password,repassword})
-        dispatch(register({email,password,repassword})).then(()=>{
+        // console.log({email,password,repassword})
+        dispatch(register({email,password,repassword})).then((res)=>{
             history.push('/')
-
+            console.log(res)
         })
-        .catch((error)=> {
-            if (error.response) { 
-              console.log(error.response.data.msg)
-              // this.setState({error:error.response.data.msg}) 
-            }
+        .catch((err)=> {
+            seterror(err)
+            console.log(err)
           })
         
     }
@@ -149,6 +148,10 @@ const Register = () => {
                                         </div>
                                         <div className="row m-t-30">
                                             <div className="col-md-12">
+                                                {
+                                                    error &&<h4 style={{color:'red'}}>{error}</h4>
+                                                
+                                                }
                                                 {/* <button onClick={dispatch_register} className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now</button> */}
                                                 <a onClick={dispatch_register} className="btn btn-primary btn-md btn-block text-white waves-effect text-center m-b-20">Sign up now</a>
 

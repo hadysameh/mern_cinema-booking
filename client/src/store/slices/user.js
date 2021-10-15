@@ -49,17 +49,25 @@ export const login = ({ email, password }) => async dispatch => {
       let user = res.data.user
       dispatch(setUser({user:JSON.stringify(user)}));
       dispatch(setToken({token}));
+      let success_promise=new Promise((resolve,reject)=>{
+        resolve(res)
+      })
+      return success_promise
 
     } catch (e) {
-        let msg=e.response.data.msg
+        // let msg=e.response.data.msg
         // dispatch(setError({e.response.data.msg}));
-        dispatch(setError({msg}));
-
-      return console.error(e.message);
+        // dispatch(setError({msg}));
+        // console.error(e.message);
+        let failed_promise=new Promise((resolve,reject)=>{
+          reject(e.response.data.status)
+        })
+        return failed_promise
+      // return e.message;
     }
   }
 export const register = ({ email, password , repassword }) => async dispatch => {
-    console.log({ email, password , repassword })
+    // console.log({ email, password , repassword })
     // console.log('try to dispatch register')
     // console.log('try to use axios')
     // axios.post('/api/user/register', { email, password, repassword }).then(res=>{
@@ -82,13 +90,21 @@ export const register = ({ email, password , repassword }) => async dispatch => 
       let user = res.data.user
       dispatch(setUser({user:JSON.stringify(user)}));
       dispatch(setToken({token}));
+      let success_promise=new Promise((resolve,reject)=>{
+        resolve(res)
+      })
+      return success_promise
 
     } catch (e) {
-        let msg=e.response.data.msg
+        // let msg=e.response.data.msg
         // dispatch(setError({e.response.data.msg}));
-        dispatch(setError({msg}));
+        let failed_promise=new Promise((resolve,reject)=>{
+          reject(e.response.data.status)
+        })
+        return failed_promise
+      //   dispatch(setError({msg}));
 
-      return console.error(e.message);
+      // return console.error(e.message);
     }
     
     
@@ -100,6 +116,7 @@ export const logout = ()=>async dispatch=>{
     console.log(res)
     dispatch(setToken(res.data.token))
     dispatch(setUser(res.data.user))
+    return 'success'
   }
      
 

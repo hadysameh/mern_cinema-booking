@@ -82,6 +82,7 @@ const Hall_reservations = () => {
     }, [hall]);
 
 
+    //middelware in the back end was fixded
     const fetch_halls_for_schedule=()=>{
         axios.get('/api/schedule/get_halls',{
             params: {
@@ -98,6 +99,7 @@ const Hall_reservations = () => {
         })
     }
 
+    //middelware in the back end was fixded
     const fetch_seats_for_hall=()=>{
 
         axios.get('/api/purchase/get_purchased_seats',{
@@ -128,6 +130,8 @@ const Hall_reservations = () => {
         setselected_seats(selected_seats.filter(selected_seat=>selected_seat !==seat))
         // console.log(selected_seats)
     }
+
+    //middelware in the back end was fixded
     const onApprove=(data,actions)=>{
         axios.post('/api/purchase/store/',{
             movie_id,

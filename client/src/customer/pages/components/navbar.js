@@ -1,15 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import {useDispatch, useSelector} from 'react-redux'
+import {logout} from '../../../store/slices/user'
 // import './../../template_files/css/style.css'
 
 import site_logo from "./../../template_files/images/logo1.png"
 // let site_logo = require("./../../template_files/images/logo1.png")
 
 const Navbar = () => {
+    const token = useSelector((state) => state.user.token)
+    const dispatch = useDispatch()
+
+    const dispatch_logout=()=>{
+        dispatch(logout())
+        .then(res=>console.log(res))
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     return (
         <div>
-            
                 {/* <!-- BEGIN | Header --> */}
                 <header className="ht-header">
                     <div className="container">
@@ -93,8 +103,9 @@ const Navbar = () => {
                                             </ul>
                                         </li> */}
                                     </ul>
+                                    
                                     <ul className="nav navbar-nav flex-child-menu menu-right">
-                                        <li className="dropdown first">
+                                        {/* <li className="dropdown first">
                                             <a className="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
                                             pages <i className="fa fa-angle-down" aria-hidden="true"></i>
                                             </a>
@@ -103,10 +114,22 @@ const Navbar = () => {
                                                 <li><a href="404.html">404 Page</a></li>
                                                 <li className="it-last"><a href="comingsoon.html">Coming soon</a></li>
                                             </ul>
-                                        </li>                
-                                        <li><a href="#">Help</a></li>
-                                        <li className=""><Link to='/login'>Login</Link></li>
-                                        <li className="btn signupLink"><a href="#">sign up</a></li>
+                                        </li>  */}
+                                        {
+                                            token
+                                            ?(
+                                                <>
+                                                    <li className="btn signupLink"><a href="#" onClick={dispatch_logout}>sign out</a></li>
+                                                </>
+                                            )
+                                            :(
+                                                <>
+                                                    <li className=""><Link to='/login' style={{color:'#fff'}}>Login</Link></li>
+                                                    <li className=""><Link to='/register'  style={{padding: '11px 25px',background:'#dd003f',borderRadius:'10px',color:'#fff'}}>sign up</Link></li>
+                                                </>
+                                            )
+                                        }               
+                                        
                                     </ul>
                                 </div>
                        

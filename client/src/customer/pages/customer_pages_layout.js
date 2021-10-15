@@ -79,7 +79,7 @@ const Customer_pages_layout = (props) => {
             {/* <!--end of preloading--> */}
             
             <Navbar/>
-            {props.content}
+            {props.Content}
             <Footer/>
             
             <Helmet>

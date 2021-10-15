@@ -9,22 +9,26 @@ const Login = (props) => {
     const history = useHistory()
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const [error, seterror] = useState(null)
    
-    const token = useSelector((state) => state.user.token)
+    // const token = useSelector((state) => state.user.token)
     const dispatch_login=()=>{
         console.log({email,password})
-        dispatch(login({email,password})).then(()=>{
-            history.push('/')
+        dispatch(login({email,password})).then((res)=>{
+            console.log(res)
+            history.goBack()
 
         })
         .catch((error)=> {
-            if (error.response) { 
-              console.log(error.response.data.msg)
-              // this.setState({error:error.response.data.msg}) 
-            }
+            console.log(error)
+            seterror(error)
           })
     
     }
+    // useEffect(() => {
+    //     console.log(history.location.state);
+        
+    // }, []);
     return (
         <div themebg-pattern="theme1">
             <link rel="stylesheet" href="../files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
@@ -145,6 +149,12 @@ const Login = (props) => {
                                             </div>
                                             <div className="row m-t-30">
                                                 <div className="col-md-12">
+                                                    {
+                                                        
+                                                            error &&<h4 style={{color:'red'}}>{error}</h4>
+                                                        
+                                                        
+                                                    }
                                                     <button type="button" onClick={dispatch_login } className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
                                                     
                                                 </div>
