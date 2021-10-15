@@ -37,9 +37,9 @@ initializeRoutes(app)
 
 if(process.env.NOD_ENV=='PRODUCTION'){
 
-  app.use(express.static(__dirname+'/build/'))
+  app.use(express.static(__dirname+'/client/build/'))
   app.get('*',(req,res)=>{
-    res.sendFile(__dirname+'client/build/index.html')
+    res.sendFile(__dirname+'/client/build/index.html')
 
   })
 }else{

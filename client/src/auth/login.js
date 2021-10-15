@@ -15,12 +15,12 @@ const Login = (props) => {
     const dispatch_login=()=>{
         console.log({email,password})
         dispatch(login({email,password})).then((res)=>{
-            console.log(res)
+            // console.log(res)
             history.goBack()
 
         })
         .catch((error)=> {
-            console.log(error)
+            // console.log(error)
             seterror(error)
           })
     

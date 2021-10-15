@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import {logout} from '../../../store/slices/user'
+import { useHistory } from "react-router-dom";
+
 // import './../../template_files/css/style.css'
 
 import site_logo from "./../../template_files/images/logo1.png"
@@ -10,12 +12,16 @@ import site_logo from "./../../template_files/images/logo1.png"
 const Navbar = () => {
     const token = useSelector((state) => state.user.token)
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const dispatch_logout=()=>{
         dispatch(logout())
-        .then(res=>console.log(res))
+        .then(res=>{
+            // console.log(res)
+            history.push('/')
+        })
         .catch(error=>{
-            console.log(error)
+            // console.log(error)
         })
     }
     return (
