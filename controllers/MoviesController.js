@@ -37,6 +37,7 @@ class MoviesController{
     }
 
     static async store(req,res){
+        console.log(req)
         let movie = new Movie({
             movie_name:req.body.movie_name,
             rating:req.body.rating,
