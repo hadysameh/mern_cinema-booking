@@ -12,7 +12,7 @@ import axios from 'axios';
 require('dotenv').config()
 
     // axios.defaults.baseURL = 'http://localhost:5000';
-    axios.defaults.baseURL = 'https://cinemablockbuster.herokuapp.com/';
+    axios.defaults.baseURL = process.env.REACT_APP_base_server_url;
 
     // axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
     // axios.defaults.headers.post['Content-Type'] = 'application/json';
