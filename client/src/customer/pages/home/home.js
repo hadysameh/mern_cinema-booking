@@ -42,7 +42,7 @@ const Home = () => {
                                     
                                     {movies.map(movie=>(
                                     <div className="movie-item-style-2 movie-item-style-1">
-                                        <img src={process.env.REACT_APP_base_server_url+movie.image} alt=""/>
+                                        <img src={process.env.REACT_APP_base_server_url+'/'+movie.image} alt=""/>
                                         <div className="hvr-inner">
                                             {/* <a  href="moviesingle.html"> Read more <i className="ion-android-arrow-dropright"></i> </a> */}
                                             <Link  to={'/movie/'+movie._id}> Read more <i className="ion-android-arrow-dropright"></i> </Link>
