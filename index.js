@@ -62,7 +62,8 @@ mongoose.connect(process.env.mongodbConnectionStr,
 //     console.log('a user connected');
 //   });
 // app.listen(process.env.port,()=>console.log('app running on port '+process.env.port))
-let port = process.env.port||3000
+let port = process.env.PORT ||5000
 server.listen(port,()=>console.log('app running on port '+process.env.port))
+
 
   
