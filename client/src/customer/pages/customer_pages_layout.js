@@ -14,6 +14,12 @@ const Customer_pages_layout = (props) => {
         // console.log('load event was dispatched ')
 
       },2500)
+      setTimeout(()=>{
+        window.dispatchEvent(new Event('load'));
+        // console.log('load event was dispatched ')
+
+      },25000)
+      console.log(process.env.REACT_APP_base_server_url)
       return () => {
         
       }
