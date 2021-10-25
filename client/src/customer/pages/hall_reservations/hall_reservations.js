@@ -43,7 +43,7 @@ const Hall_reservations = () => {
     
     //for seat purchase notification
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socket = io(process.env.REACT_APP_base_server_url);
         let event_name=movie_id+'_'+duration+'_'+date+'_'+hall
         // console.log(event_name)
         socket.on(event_name, (data) => {

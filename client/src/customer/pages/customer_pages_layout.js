@@ -27,7 +27,7 @@ const Customer_pages_layout = (props) => {
 
   useEffect(() => {
     let script_pats=[
-      // '/customer_files/js/jquery.js',
+      '/customer_files/js/jquery.js',
       '/customer_files/js/plugins.js',
       '/customer_files/js/plugins2.js',
       '/customer_files/js/custom.js'
@@ -91,9 +91,9 @@ const Customer_pages_layout = (props) => {
             <Helmet>
  
             <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>
-            {/* <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
+            <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
             <script type="text/javascript"  src='./customer_files/js/plugins2.js'></script>
-            <script type="text/javascript"  src='./customer_files/js/custom.js'></script> */}
+            <script type="text/javascript"  src='./customer_files/js/custom.js'></script>
             </Helmet>
            
 
