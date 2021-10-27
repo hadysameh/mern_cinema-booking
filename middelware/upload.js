@@ -1,22 +1,28 @@
-const fs = require('fs');
+// const fs = require('fs');
 const multer  = require('multer')
 // const upload = multer()
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      let folderPath ='./uploads/'+new Date().toISOString().replace(/T.*/, '')
-       let isFolderExist = fs.existsSync(folderPath);
-       if(isFolderExist){
-          cb(null, folderPath );   
-       }
-       else{
-        fs.mkdirSync(folderPath, { recursive: true })
-       }
-      cb(null, folderPath );
-    },
-    filename: function(req, file, cb) {
-      cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
-    }
-  });
-const upload = multer({ storage: storage })
+// const multerS3 = require('multer-s3')
+
+// const s3=require('../aws_s3_helper')
+// // console.log(s3)
+// let folder_name=new Date().toISOString().replace(/T.*/, '')
+
+// let upload = multer({
+//   storage: multerS3({
+//     s3: s3,
+//     bucket: process.env.aws_s3_bucket_name,
+//     acl: 'public-read',
+//     key: function (req, file, cb) {
+//       cb(null, folder_name+'/'+Date.now().toString()+'-'+file.originalname)
+//     }
+//   })
+// })
+
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
+
+
+
+// const upload = multer({ storage: storage })
 
 module.exports=upload

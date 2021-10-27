@@ -10,7 +10,7 @@ let movie_schema = new schema({
         type:Number,
         required:true
     },
-    image:{
+    image_path:{
         type:String,
         required:true
     },
