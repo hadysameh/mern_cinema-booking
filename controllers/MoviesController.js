@@ -3,6 +3,8 @@ const Movie = require('../models/Movie')
 const Schedule = require('../models/Schedule')
 const s3=require('../aws_s3_helper')
 // var aws = require("aws-sdk");
+const upload = require('../aws_s3_upload_handler')
+// console.log(['upload is',upload])
 class MoviesController{
 
     static async index(req,res){
@@ -38,42 +40,56 @@ class MoviesController{
     }
 
     static async store(req,res){
-        // console.log(s3)
-        // let s3 = new aws.S3({
-        //     accessKeyId: process.env.aws_s3_accessKeyId,
-        //     secretAccessKey: process.env.aws_s3_secretAccessKey,
-        //     region: process.env.aws_s3_region
-        //   });
+        
         const file = req.file;
-        let folder_name_in_bucket=new Date().toISOString().replace(/T.*/, '')
-        let file_path=folder_name_in_bucket+'/'+file.originalname
-        let  params = {
-            Bucket: process.env.aws_s3_bucket_name,
-            Key: file_path,
-            Body: file.buffer,
-            ContentType: file.mimetype,
-            ACL: "public-read"
-          };
-        s3.upload(params, async function(err, data) {
-            if (err) {
-            //   res.status(500).json({ error: true, Message: err });
-              console.log(err)
-            } 
-            else 
-            {
-                console.log({data})
-                console.log(data.Location)
 
-                let movie = new Movie({
-                    movie_name:req.body.movie_name,
-                    rating:req.body.rating,
-                    image_path:data.Location,
-                    trailer_link:req.body.trailer_link,
-                })
-                let saved_Movie=await movie.save()
-                res.json(saved_Movie)
-            }
-        });
+        let folder_name_in_bucket=new Date().toISOString().replace(/T.*/, '')
+
+        let file_path=folder_name_in_bucket+'/'+Date.now()+'_'+file.originalname
+
+        // let  params = {
+        //     Bucket: process.env.aws_s3_bucket_name,
+        //     Key: file_path,
+        //     Body: file.buffer,
+        //     ContentType: file.mimetype,
+        //     ACL: "public-read"
+        //   };
+
+        upload(file_path,file.buffer)
+        .then(async(results)=>{
+            console.log(results)
+            let movie = new Movie({
+                movie_name:req.body.movie_name,
+                rating:req.body.rating,
+                image_path:process.env.aws_s3_bucket_url+file_path,
+                trailer_link:req.body.trailer_link,
+            })
+            let saved_Movie=await movie.save()
+            res.json(saved_Movie)
+            })
+        .catch(err=>console.log(err))
+        
+
+        // s3.upload(params, async function(err, data) {
+        //     if (err) {
+        //     //   res.status(500).json({ error: true, Message: err });
+        //       console.log(err)
+        //     } 
+        //     else 
+        //     {
+        //         // console.log({data})
+        //         // console.log(data.Location)
+
+        //         let movie = new Movie({
+        //             movie_name:req.body.movie_name,
+        //             rating:req.body.rating,
+        //             image_path:data.Location,
+        //             trailer_link:req.body.trailer_link,
+        //         })
+        //         let saved_Movie=await movie.save()
+        //         res.json(saved_Movie)
+        //     }
+        // });
 
         
     }
