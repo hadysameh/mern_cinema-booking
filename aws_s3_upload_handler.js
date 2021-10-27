@@ -32,5 +32,5 @@ const upload = async (file_path,file_content)=>{
         })
     }
 }
-console.log(upload)
+// console.log(upload)
 module.exports= upload

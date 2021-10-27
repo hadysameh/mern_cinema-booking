@@ -40,68 +40,20 @@ class MoviesController{
     }
 
     static async store(req,res){
-        
-        // const file = req.file;
-
-        // let folder_name_in_bucket=new Date().toISOString().replace(/T.*/, '')
-
-        // let file_path=folder_name_in_bucket+'/'+Date.now()+'_'+file.originalname
-
-        // let  params = {
-        //     Bucket: process.env.aws_s3_bucket_name,
-        //     Key: file_path,
-        //     Body: file.buffer,
-        //     ContentType: file.mimetype,
-        //     ACL: "public-read"
-        //   };
-        console.log(req.file)
-        let movie = new Movie({
-            movie_name:req.body.movie_name,
-            rating:req.body.rating,
-            image_path:req.file.location,
-            trailer_link:req.body.trailer_link,
-        })
-        let saved_Movie=await movie.save()
-        res.json(saved_Movie)
-        
-
-        // upload(file_path,file.buffer)
-        // .then(async(results)=>{
-        //     console.log(results)
-        //     let movie = new Movie({
-        //         movie_name:req.body.movie_name,
-        //         rating:req.body.rating,
-        //         image_path:process.env.aws_s3_bucket_url+file_path,
-        //         trailer_link:req.body.trailer_link,
-        //     })
-        //     let saved_Movie=await movie.save()
-        //     res.json(saved_Movie)
-        //     })
-        // .catch(err=>console.log(err))
-        
-
-        // s3.upload(params, async function(err, data) {
-        //     if (err) {
-        //     //   res.status(500).json({ error: true, Message: err });
-        //       console.log(err)
-        //     } 
-        //     else 
-        //     {
-        //         // console.log({data})
-        //         // console.log(data.Location)
-
-        //         let movie = new Movie({
-        //             movie_name:req.body.movie_name,
-        //             rating:req.body.rating,
-        //             image_path:data.Location,
-        //             trailer_link:req.body.trailer_link,
-        //         })
-        //         let saved_Movie=await movie.save()
-        //         res.json(saved_Movie)
-        //     }
-        // });
-
-        
+        try{
+            console.log(req.body)
+            let movie = new Movie({
+                movie_name:req.body.movie_name,
+                rating:req.body.rating,
+                image_path:req.file.location,
+                trailer_link:req.body.trailer_link,
+            })
+            let saved_Movie=await movie.save()
+            res.json(saved_Movie)
+        }
+        catch(err){
+            console.log(['error is',err])
+        }
     }
 
     static async delete(req,res){
@@ -112,7 +64,7 @@ class MoviesController{
     static async edit(req,res){
         let edited_movie
         if(req.file){
-            let image=req.file.path
+            let image=req.file.location
             edited_movie={
                 ...req.body,
                 image
