@@ -41,11 +41,11 @@ class MoviesController{
 
     static async store(req,res){
         
-        const file = req.file;
+        // const file = req.file;
 
-        let folder_name_in_bucket=new Date().toISOString().replace(/T.*/, '')
+        // let folder_name_in_bucket=new Date().toISOString().replace(/T.*/, '')
 
-        let file_path=folder_name_in_bucket+'/'+Date.now()+'_'+file.originalname
+        // let file_path=folder_name_in_bucket+'/'+Date.now()+'_'+file.originalname
 
         // let  params = {
         //     Bucket: process.env.aws_s3_bucket_name,
@@ -54,20 +54,30 @@ class MoviesController{
         //     ContentType: file.mimetype,
         //     ACL: "public-read"
         //   };
+        console.log(req.file)
+        let movie = new Movie({
+            movie_name:req.body.movie_name,
+            rating:req.body.rating,
+            image_path:req.file.location,
+            trailer_link:req.body.trailer_link,
+        })
+        let saved_Movie=await movie.save()
+        res.json(saved_Movie)
+        
 
-        upload(file_path,file.buffer)
-        .then(async(results)=>{
-            console.log(results)
-            let movie = new Movie({
-                movie_name:req.body.movie_name,
-                rating:req.body.rating,
-                image_path:process.env.aws_s3_bucket_url+file_path,
-                trailer_link:req.body.trailer_link,
-            })
-            let saved_Movie=await movie.save()
-            res.json(saved_Movie)
-            })
-        .catch(err=>console.log(err))
+        // upload(file_path,file.buffer)
+        // .then(async(results)=>{
+        //     console.log(results)
+        //     let movie = new Movie({
+        //         movie_name:req.body.movie_name,
+        //         rating:req.body.rating,
+        //         image_path:process.env.aws_s3_bucket_url+file_path,
+        //         trailer_link:req.body.trailer_link,
+        //     })
+        //     let saved_Movie=await movie.save()
+        //     res.json(saved_Movie)
+        //     })
+        // .catch(err=>console.log(err))
         
 
         // s3.upload(params, async function(err, data) {
