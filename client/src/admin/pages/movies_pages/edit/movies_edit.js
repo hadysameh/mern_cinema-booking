@@ -75,7 +75,7 @@ const Movies_create = () => {
                 setmovie_name(res.data[0].movie_name)
                 setrating(res.data[0].rating)
                 settrailer_link(res.data[0].movie_name)
-                setimage(res.data[0].image)
+                setimage(res.data[0].image_path)
             })
         },[id])
     
@@ -113,7 +113,7 @@ const Movies_create = () => {
                         <div className="form-group row">
                             <label className="col-sm-2 col-form-label">current Poster Image</label>
                             <div className="col-sm-10">
-                                <img style={{'width':'100px'}} src={'http://localhost:5000/'+image}/>
+                                <img style={{'width':'100px'}} src={image}/>
                             </div>
                             
                         </div>

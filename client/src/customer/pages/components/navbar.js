@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 // import './../../template_files/css/style.css'
 
-import site_logo from "./../../template_files/images/logo1.png"
+import site_logo from "./logo1.png"
 // let site_logo = require("./../../template_files/images/logo1.png")
 
 const Navbar = () => {

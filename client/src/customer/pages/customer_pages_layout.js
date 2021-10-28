@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 import {Helmet} from "react-helmet";
-import loading_img from "./../template_files/images/logo1.png"
+import loading_img from "./components/logo1.png"
 
 const Customer_pages_layout = (props) => {
   
@@ -19,7 +19,7 @@ const Customer_pages_layout = (props) => {
         // console.log('load event was dispatched ')
 
       },25000)
-      console.log(process.env.REACT_APP_base_server_url)
+      // console.log(process.env.REACT_APP_base_server_url)
       return () => {
         
       }
@@ -27,7 +27,7 @@ const Customer_pages_layout = (props) => {
 
   useEffect(() => {
     let script_pats=[
-      '/customer_files/js/jquery.js',
+      // '/customer_files/js/jquery.js',
       '/customer_files/js/plugins.js',
       '/customer_files/js/plugins2.js',
       '/customer_files/js/custom.js'
@@ -65,8 +65,10 @@ const Customer_pages_layout = (props) => {
     return (
         <div>
           <Helmet>
+          <link rel="stylesheet" href="./customer_files/css/plugins.css" type="text/css" media="all"/>
+
             <link rel="stylesheet" href="./customer_files/css/style.css" type="text/css" media="all"/>
-            <link rel="stylesheet" href="./customer_files/css/plugins.css" type="text/css" media="all"/>
+            <base href="/" />
           </Helmet>
           {/* <Helmet>
               <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>              
@@ -88,13 +90,12 @@ const Customer_pages_layout = (props) => {
             {props.Content}
             <Footer/>
             
-            <Helmet>
- 
+            {/* <Helmet>
             <script type="text/javascript"  src='./customer_files/js/jquery.js'></script>
-            {/* <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
+            <script type="text/javascript"  src='./customer_files/js/plugins.js'></script>
             <script type="text/javascript"  src='./customer_files/js/plugins2.js'></script>
-            <script type="text/javascript"  src='./customer_files/js/custom.js'></script> */}
-            </Helmet>
+            <script type="text/javascript"  src='./customer_files/js/custom.js'></script>
+            </Helmet> */}
            
 
         </div>
