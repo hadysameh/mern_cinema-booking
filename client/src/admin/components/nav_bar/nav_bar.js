@@ -30,7 +30,7 @@ const Nav_bar = () => {
                         <div className="navbar-wrapper">
                             <div className="navbar-logo">
                                 <a href="../index.html">
-                                    <img className="img-fluid" src="/files/assets/images/logo.png" alt="Theme-Logo" />
+                                    <img className="img-fluid" src="/admin_files/assets/images/logo.png" alt="Theme-Logo" />
                                 </a>
                                 <a className="mobile-menu" id="mobile-collapse" href="../#!">
                                     <i className="feather icon-menu icon-toggle-right"></i>
@@ -70,7 +70,7 @@ const Nav_bar = () => {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img className="img-radius" src="/files/assets/images/avatar-4.jpg" alt="Generic placeholder image"/>
+                                                        <img className="img-radius" src="/admin_files/assets/images/avatar-4.jpg" alt="Generic placeholder image"/>
                                                         <div className="media-body">
                                                             <h5 className="notification-user">John Doe</h5>
                                                             <p className="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -80,7 +80,7 @@ const Nav_bar = () => {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img className="img-radius" src="/files/assets/images/avatar-3.jpg" alt="Generic placeholder image"/>
+                                                        <img className="img-radius" src="/admin_files/assets/images/avatar-3.jpg" alt="Generic placeholder image"/>
                                                         <div className="media-body">
                                                             <h5 className="notification-user">Joseph William</h5>
                                                             <p className="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -90,7 +90,7 @@ const Nav_bar = () => {
                                                 </li>
                                                 <li>
                                                     <div className="media">
-                                                        <img className="img-radius" src="/files/assets/images/avatar-4.jpg" alt="Generic placeholder image"/>
+                                                        <img className="img-radius" src="/admin_files/assets/images/avatar-4.jpg" alt="Generic placeholder image"/>
                                                         <div className="media-body">
                                                             <h5 className="notification-user">Sara Soudein</h5>
                                                             <p className="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -113,7 +113,7 @@ const Nav_bar = () => {
 
                                         <div className="dropdown-primary dropdown">
                                             <div className="dropdown-toggle" data-toggle="dropdown">
-                                                <img src="/files/assets/images/avatar-4.jpg" className="img-radius" alt="User-Profile-Image"/>
+                                                <img src="/admin_files/assets/images/avatar-4.jpg" className="img-radius" alt="User-Profile-Image"/>
                                                 <span>John Doe</span>
                                                 <i className="feather icon-chevron-down"></i>
                                             </div>

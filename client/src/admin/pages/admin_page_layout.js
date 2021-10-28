@@ -169,6 +169,7 @@ const Admin_page_layout = (props) => {
             </div>
            
             <Helmet>
+                <base href="/" />
              
                 <script type="text/javascript" src="/admin_files/bower_components/jquery/js/jquery.min.js"></script>
                 {/* <script type="text/javascript" src="/admin_files/bower_components/jquery-ui/js/jquery-ui.min.js" ></script>
