@@ -111,16 +111,16 @@ const Admin_page_layout = (props) => {
     return (
         <div>
           <Helmet>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/bower_components/bootstrap/css/bootstrap.min.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/pages/waves/css/waves.min.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/feather/css/feather.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/themify-icons/themify-icons.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/icofont/css/icofont.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/bower_components/chartist/css/chartist.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/icon/font-awesome/css/font-awesome.min.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/widget.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/style.css'/>
-          <link  rel="stylesheet" type="text/css" media="all" href='/files/assets/css/pages.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/bower_components/bootstrap/css/bootstrap.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/pages/waves/css/waves.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/icon/feather/css/feather.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/icon/themify-icons/themify-icons.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/icon/icofont/css/icofont.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/bower_components/chartist/css/chartist.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/icon/font-awesome/css/font-awesome.min.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/css/widget.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/css/style.css'/>
+          <link  rel="stylesheet" type="text/css" media="all" href='/admin_files/assets/css/pages.css'/>
 
           </Helmet>
           

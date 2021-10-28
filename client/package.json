@@ -1,5 +1,5 @@
 {
-  "name": "auth-front",
+  "name": "4o3ba",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,9 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "file-loader": "^6.2.0",
-    "url-loader": "^4.1.1"
   }
 }

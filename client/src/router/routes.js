@@ -34,15 +34,12 @@ import Hall_reservations from '../customer/pages/hall_reservations/hall_reservat
 
 
 
- 
-
 let routes = (
     
         <Router >
             
                 <Switch>
 
-                    
                     <Route exact path='/'>
                         <ScrollToTtheTop/>
                         <Customer_pages_layout Content={<Home/>}/>

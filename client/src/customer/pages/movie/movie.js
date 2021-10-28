@@ -83,7 +83,7 @@ const Movie = () => {
 		<div className="row ipad-width2">
 			<div className="col-md-4 col-sm-12 col-xs-12">
 				<div className="movie-img sticky-sb">
-					<img src={process.env.REACT_APP_base_server_url+movie.image} alt=""/>
+					<img src={movie.image_path} alt=""/>
 					<div className="movie-btn">	
 						<div className="btn-transform transform-vertical red">
 							<div><a href="#" className="item item-1 redbtn"> <i className="ion-play"></i> Watch Trailer</a></div>
