@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {login} from './../store/slices/user'
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 const Login = (props) => {
     const dispatch = useDispatch()
@@ -31,17 +32,19 @@ const Login = (props) => {
     // }, []);
     return (
         <div themebg-pattern="theme1">
-            <link rel="stylesheet" href="../files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/widget.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/style.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/pages.css" type="text/css" media="all"/> 
+            <Helmet>
+                <link rel="stylesheet" href="./admin_files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/css/widget.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/css/style.css" type="text/css" media="all"/> 
+                <link rel="stylesheet" href="./admin_files/assets/css/pages.css" type="text/css" media="all"/> 
+            </Helmet>
             <div className="theme-loader">
                 <div className="loader-track">
                     <div className="preloader-wrapper">
@@ -103,7 +106,7 @@ const Login = (props) => {
                                 {/* <!-- Authentication card start --> */}
                                 <form className="md-float-material form-material" action='#'>
                                     <div className="text-center">
-                                        <img src="../files/assets/images/logo.png" alt="logo.png"/>
+                                        <img src="./admin_files/assets/images/logo.png" alt="logo.png"/>
                                     </div>
                                     <div className="auth-box card">
                                         <div className="card-block" >
@@ -173,7 +176,7 @@ const Login = (props) => {
                     </div>
                     {/* <!-- end of container-fluid --> */}
                 </section>
-                {/* <script type="text/javascript" src="../files/bower_components/jquery/js/jquery.min.js"></script> */}
+                {/* <script type="text/javascript" src="./admin_files/bower_components/jquery/js/jquery.min.js"></script> */}
   
         </div>
     );

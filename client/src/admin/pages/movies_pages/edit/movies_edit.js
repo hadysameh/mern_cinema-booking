@@ -74,7 +74,7 @@ const Movies_create = () => {
                  
                 setmovie_name(res.data[0].movie_name)
                 setrating(res.data[0].rating)
-                settrailer_link(res.data[0].movie_name)
+                settrailer_link(res.data[0].trailer_link)
                 setimage(res.data[0].image_path)
             })
         },[id])

@@ -1,4 +1,5 @@
 const Schedule = require('../models/Schedule')
+let ObjectId = require('mongodb').ObjectId; 
 
 class SchedulesController{
 
@@ -40,7 +41,7 @@ class SchedulesController{
     static async get_halls(req,res){
         // console.log({_id:req.query.id})
         let search_params={
-            'movie._id':req.query.movie_id,
+            'movie._id':new ObjectId(req.query.movie_id),
             duration:req.query.duration,
             date:req.query.date,
         }

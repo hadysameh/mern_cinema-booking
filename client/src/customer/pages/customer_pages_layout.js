@@ -65,7 +65,7 @@ const Customer_pages_layout = (props) => {
     return (
         <div>
           <Helmet>
-          <link rel="stylesheet" href="./customer_files/css/plugins.css" type="text/css" media="all"/>
+            <link rel="stylesheet" href="./customer_files/css/plugins.css" type="text/css" media="all"/>
 
             <link rel="stylesheet" href="./customer_files/css/style.css" type="text/css" media="all"/>
             <base href="/" />

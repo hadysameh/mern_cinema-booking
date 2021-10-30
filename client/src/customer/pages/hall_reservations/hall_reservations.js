@@ -93,7 +93,7 @@ const Hall_reservations = () => {
               }
         })
         .then((res)=>{
-            // console.log(res)
+            console.log(res)
             sethalls(res.data)
             sethall(res.data[0].hall_name)
         })

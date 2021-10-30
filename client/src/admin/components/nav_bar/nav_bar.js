@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 // import { setUser, setToken } from '../../../store/slices/user'
 // import axios from 'axios'
 import {logout} from '../../../store/slices/user'
+import { Link } from 'react-router-dom';
 
 import { useHistory } from "react-router-dom";
 
@@ -29,9 +30,9 @@ const Nav_bar = () => {
              <nav className="navbar header-navbar pcoded-header">
                         <div className="navbar-wrapper">
                             <div className="navbar-logo">
-                                <a href="../index.html">
-                                    <img className="img-fluid" src="/admin_files/assets/images/logo.png" alt="Theme-Logo" />
-                                </a>
+                                    <Link to='/'>
+                                        <img style={{height:'50px'}} className="img-fluid" src={"./logo1.png"} alt="Theme-Logo" />
+                                    </Link>
                                 <a className="mobile-menu" id="mobile-collapse" href="../#!">
                                     <i className="feather icon-menu icon-toggle-right"></i>
                                 </a>

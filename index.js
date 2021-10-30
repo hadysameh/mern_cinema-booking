@@ -16,7 +16,7 @@ const io = new Server(server,{
      
     }
   });
-
+const start_jobs= require('./jobs/jobs_handler')
 //   console.log(io_helper)
   io_helper.io_instance = io
 //   console.log(io_helper)
@@ -55,7 +55,9 @@ mongoose.connect(process.env.mongodbConnectionStr,
 { useNewUrlParser: true ,useUnifiedTopology: true}
 )
 .then(()=>{
-    console.log("MongoDB successfully connected")  
+    console.log("MongoDB successfully connected") 
+    start_jobs()
+
 })
 
 // io.on('connection', (socket) => {
@@ -63,7 +65,9 @@ mongoose.connect(process.env.mongodbConnectionStr,
 //   });
 // app.listen(process.env.port,()=>console.log('app running on port '+process.env.port))
 let port = process.env.PORT ||5000
-server.listen(port,()=>console.log('app running on port '+process.env.port))
+server.listen(port,()=>{
+  console.log('app running on port '+process.env.port)
 
+})
 
   

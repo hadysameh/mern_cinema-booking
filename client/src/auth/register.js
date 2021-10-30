@@ -2,6 +2,7 @@ import React ,{ useEffect,useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {register} from './../store/slices/user'
 import { useHistory } from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 const Register = () => {
     const dispatch = useDispatch()
@@ -28,17 +29,20 @@ const Register = () => {
     }
     return (
         <div themebg-pattern="theme1">
-            <link rel="stylesheet" href="../files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/widget.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/style.css" type="text/css" media="all"/> 
-            <link rel="stylesheet" href="../files/assets/css/pages.css" type="text/css" media="all"/> 
+            <Helmet>
+            <link rel="stylesheet" href="./admin_files/bower_components/bootstrap/css/bootstrap.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/pages/waves/css/waves.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/icon/feather/css/feather.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/icon/icofont/css/icofont.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/icon/themify-icons/themify-icons.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/bower_components/chartist/css/chartist.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/icon/font-awesome/css/font-awesome.min.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/css/widget.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/css/style.css" type="text/css" media="all"/> 
+            <link rel="stylesheet" href="./admin_files/assets/css/pages.css" type="text/css" media="all"/> 
+            </Helmet>
+
         <div className="theme-loader">
             <div className="loader-track">
                 <div className="preloader-wrapper">
@@ -100,7 +104,7 @@ const Register = () => {
                             {/* <!-- Authentication card start --> */}
                             <form className="md-float-material form-material" action=''> 
                                 <div className="text-center">
-                                    <img src="../files/assets/images/logo.png" alt="logo.png"/>
+                                    <img src="./admin_files/assets/images/logo.png" alt="logo.png"/>
                                 </div>
                                 <div className="auth-box card">
                                     <div className="card-block">
@@ -164,7 +168,7 @@ const Register = () => {
                                                 <p className="text-inverse text-left"><a href="../index.html"><b>Back to website</b></a></p>
                                             </div>
                                             <div className="col-md-2">
-                                                <img src="../files/assets/images/auth/Logo-small-bottom.png" alt="small-logo.png"/>
+                                                <img src="./admin_files/assets/images/auth/Logo-small-bottom.png" alt="small-logo.png"/>
                                             </div>
                                         </div>
                                     </div>

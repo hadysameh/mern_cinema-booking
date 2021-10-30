@@ -2,16 +2,15 @@
 const Movie = require('../models/Movie')
 const Schedule = require('../models/Schedule')
 const s3=require('../aws_s3_helper')
-// var aws = require("aws-sdk");
 const upload = require('../aws_s3_upload_handler')
-// console.log(['upload is',upload])
+let ObjectId = require('mongodb').ObjectId; 
 class MoviesController{
 
     static async index(req,res){
         let page_number= req.query.page_nummber
         let page_limit=20
         let skipping_number=(page_number-1)*20
-        let movies = await Movie.find({}).skip(skipping_number).limit(page_limit).exec()
+        let movies = await Movie.find({}).skip(skipping_number).sort({'_id':-1}).limit(page_limit).exec()
         // console.log(movies)
         res.json(movies)
     }
@@ -28,20 +27,21 @@ class MoviesController{
 
     static async dates_for_schedule(req,res){
         //when using distinct the id field is not fetched
-        let dates_and_durations =await Schedule.find({'movie._id':req.query.movie_id,'date': { $gte: new Date().toISOString().replace(/T.*/, '')}}).select(['date']).distinct('date').exec()
+        // console.log(req.query)
+        let dates_and_durations =await Schedule.find({'movie._id':new ObjectId(req.query.movie_id),'date': { $gte: new Date().toISOString().replace(/T.*/, '')}}).select(['date']).distinct('date').exec()
         // console.log(dates_and_durations)
         res.json(dates_and_durations)
     }
 
     static async durations_for_schedule(req,res){
-        let dates_and_durations =await Schedule.find({'movie._id':req.query.movie_id,'date': req.query.date}).select(['duration','_id']).distinct('duration').exec()
+        let dates_and_durations =await Schedule.find({'movie._id':new ObjectId(req.query.movie_id),'date': req.query.date}).select(['duration','_id']).distinct('duration').exec()
         // console.log(dates_and_durations)
         res.json(dates_and_durations)
     }
 
     static async store(req,res){
         try{
-            console.log(req.body)
+            // console.log(req.body)
             let movie = new Movie({
                 movie_name:req.body.movie_name,
                 rating:req.body.rating,
