@@ -5,11 +5,8 @@ const Schedule = require('./../../models/Schedule')
 
 let job_func = async()=>{
     let movies = await Movie.find({}).limit(20).exec().catch(err=>console.log(err))
-    // console.log(movies)
     movies.forEach(movie => {
         let movie_schedules=[]
-        // console.log(movie_schedules)
-        // console.log([movie_schedules,'before forloop'])
 
         for (let index = 0; index < 7; index++) {
             console.log('inside loop')
@@ -22,20 +19,12 @@ let job_func = async()=>{
                 duration:"from 10 am to 1 pm",
                 date:date
             })
-            // console.log(movie_schedules)
-            
         }
-        // console.log([movie_schedules,'after forloop'])
         Schedule.insertMany(movie_schedules).then(res=>console.log(res))
     })
-    // console.log('after foreach loop')
-    // movies.forEach(movie => {
-        
-    // });
     
 }
 
-const job = nodeCron.schedule('30 3 * Saturday' , job_func , options)
-// console.log(job)
-// job.start()
+const job = nodeCron.schedule('34 3 * * Saturday' , job_func , options)
+
 module.exports=job
