@@ -25,6 +25,6 @@ let job_func = async()=>{
     
 }
 
-const job = nodeCron.schedule('40 0 * * Saturday' , job_func , options)
+const job = nodeCron.schedule('40 0 * * *' , job_func , options)
 
 module.exports=job
