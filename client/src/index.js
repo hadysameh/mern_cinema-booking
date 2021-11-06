@@ -20,12 +20,12 @@ require('dotenv').config()
     axios.defaults.headers.post['Content-Type'] = 'application/json';
     
     axios.interceptors.request.use(function (config) {
-      const token = store.getState().user.token;
-      // console.log({token,user:store.getState().user.user})
-      config.headers.Authorization =  `Bearer ${token}`;
-  
-      return config;
-  });
+        const token = store.getState().user.token;
+        // console.log({token,user:store.getState().user.user})
+        config.headers.Authorization =  `Bearer ${token}`;
+    
+        return config;
+    });
 ReactDOM.render(
   // <React.StrictMode>
   //   <App />
