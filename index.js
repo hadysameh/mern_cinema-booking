@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 
 
     
-console.log(new Date)
+console.log(new Date().toISOString())
 
 app.use('/uploads',express.static('./uploads'));
 
